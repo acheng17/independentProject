@@ -19,29 +19,32 @@ public class OldmaidGame
     for (int i = 0; i < myDeck.length()-1; i++)
     {
      int random = (int)(Math.random() * (i+1));
-   myDeck[i] = myDeck[random];
+     Integer temp = myDeck.get(i);
+     myDeck.get(i) = myDeck.get(random);
+     myDeck.get(random) = temp;
     }
     return myDeck;
   }
   
   public void deal(int players)
   {
-    public humanHand = 0;
-    public computerHand = 0;
+    public ArrayList <Card> computerHand = new ArrayList<Card>();
+    public ArrayList <Card> humanHand = new ArrayList<Card>();
     public boolean isEven = false;
     for (int i = myDeck.length()-1; i >= 0; i--)
     {
       if (isEven)
       {
         int odds = i;
-        humanHand += odds;
+        humanHand.add(odds);
       }
       if (!isEven)
       {
         int evens = i;
-        compuerHand += evens;
+        compuerHand.add(evens);
       }
     }
     return humanHand;
     return computerHand;
   }
+}

@@ -1,20 +1,20 @@
 public class OldmaidGame
 {
-  public int players = 0;
+  public static void main(String args[])
   {
+  public int players = 0;
   private ArrayList <Card> myDeck = new ArrayList<Card>();
   for (int i = 1; i<= 13; i++)
   {
     myDeck.add(i);
     myDeck.add(i);
     myDeck.add(i);
-    myDeck.add(i);
+    myDeck.add(i); 
   }
   
   myDeck.add(14);
-  }
   
-  public void shuffle(ArrayList myDeck)
+  public ArrayList shuffle(ArrayList myDeck)
   {
     for (int i = 0; i < myDeck.length()-1; i++)
     {
@@ -46,5 +46,18 @@ public class OldmaidGame
     }
     return humanHand;
     return computerHand;
+  }
+   
+  public void gameOver(humanHand, computerHand)
+    if (humanHand == 0)
+  {
+    return "You win!"; 
+  }
+  if (computerHand == 0)
+  {
+    return "You lose...";
+  }
+  else 
+    return "Continue";
   }
 }

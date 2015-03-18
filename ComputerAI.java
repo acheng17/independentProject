@@ -1,9 +1,21 @@
-import java.until.*;
+import java.util.*;
 
 public class ComputerAI
 {
   public boolean checkJoker = true;
-  if (computerHand
+  for (int i = computerHand.length()-1; i >= 0; i--)
+  {
+    if (computerHand[i] = 14;)
+    {
+      checkJoker = true;
+    }
+    
+    else 
+    {
+      checkJoker = false;
+    }
+    return checkJoker;
+  }
         
   public void pickCard(humanHand)
   {
@@ -23,5 +35,5 @@ public class ComputerAI
     compTake = i;
     computerHand.add(i);
   }
-    
+}   
     
