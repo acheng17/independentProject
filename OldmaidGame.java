@@ -1,32 +1,49 @@
+import java.util.*;
+
 public class OldmaidGame
 {
+  int players = 0;
+  ArrayList <int> myDeck = new ArrayList<Card>();
   public static void main(String args[])
   {
-  public int players = 0;
-  private ArrayList <Card> myDeck = new ArrayList<Card>();
-  for (int i = 1; i<= 13; i++)
-  {
-    myDeck.add(i);
-    myDeck.add(i);
-    myDeck.add(i);
-    myDeck.add(i); 
+    for (int i = 1; i<= 13; i++)
+    {
+      myDeck.add(i);
+      myDeck.add(i);
+      myDeck.add(i);
+      myDeck.add(i); 
+    }
+    
+    myDeck.add(14);
+    
+    OldmaidGame.shuffle();
+    OldmaidGame.deal();
+    while (gameOver == false)
+    {
+      Humanplayer.checkJoker();
+      ComputerAI.checkJoker();
+      Humanplayer.pickCard();
+      ComputerAI.cardTaken();
+      Humanplayer.cardGained();
+      ComputerAI.pickCard();
+      Humanplayer.cardTaken();
+      ComputerAI.pickCard();
+      OldmaidGame.gameOver();
+    }
   }
-  
-  myDeck.add(14);
-  
   public ArrayList shuffle(ArrayList myDeck)
   {
     for (int i = 0; i < myDeck.length()-1; i++)
     {
-     int random = (int)(Math.random() * (i+1));
-     Integer temp = myDeck.get(i);
-     myDeck.get(i) = myDeck.get(random);
-     myDeck.get(random) = temp;
+      int random = (int)(Math.random() * (i+1));
+      Integer temp = myDeck.get(i);
+      myDeck.get(i) = myDeck.get(random);
+      myDeck.get(random) = temp;
     }
     return myDeck;
   }
   
-  public void deal(int players)
+  public ArrayList deal(int players)
   {
     public ArrayList <Card> computerHand = new ArrayList<Card>();
     public ArrayList <Card> humanHand = new ArrayList<Card>();
@@ -47,17 +64,26 @@ public class OldmaidGame
     return humanHand;
     return computerHand;
   }
-   
-  public void gameOver(humanHand, computerHand)
+  
+  public String gameOver(ArrayList humanHand, ArrayList computerHand)
+  {
+    gameOver = true; 
+    
     if (humanHand == 0)
-  {
-    return "You win!"; 
-  }
-  if (computerHand == 0)
-  {
-    return "You lose...";
-  }
-  else 
-    return "Continue";
+    {
+      System.out.println("You win!"); 
+      return gameOver;
+    }
+    if (computerHand == 0)
+    {
+      System.out.println("You lose...");
+      return gameOver;
+    }
+    else
+    {
+      System.out.println("Continue");
+      gameOver = false;
+      return gameOver;
+    }
   }
 }
